@@ -54,7 +54,7 @@ public class Application {
     // 메뉴코드를 입력받는 메서드 => controller 메소드를 불러오게함(보조 수단이자 도와주는 서비스 어플의 도움을 받앙 스트림을 열어옴)
     // 열어진 스트림에서 정보를 받는데...Dao 객체를 이용해서 뽑아옴.
     // 즉, Run을 위한 메소드 정리(Controller) <- 보조 서비스(stream) <- DB에 접근하기 위한 (DAO)ㄱ
-    // <<< DB에 로그인하고 연결하는 mybatis<== 가져온 db를 mapper해서 이쁘게 정보를 get set 하게 정렬>> 
+    // <<< DB에 로그인하고 연결하는 mybatis<== 가져온 db를 mapper해서 이쁘게 정보를 get set 하게 정렬>>
     private static Map<String, String> inputMenuCode(){
 
         Scanner sc = new Scanner(System.in);
