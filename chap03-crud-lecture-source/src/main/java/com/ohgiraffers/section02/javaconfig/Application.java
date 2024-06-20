@@ -34,8 +34,8 @@ public class Application {
                 case 1:
                     menuController.selectAllMenu();
                     break;
-//                case 2:
-//                    menuController.selectMenuByCode(inputMenuCode());
+                case 2:
+                    menuController.selectMenuByCode(inputMenuCode());
 //                    break;
 //                case 3:
 //                    menuController.registMenu(inputMenu());
