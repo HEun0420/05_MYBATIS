@@ -1,16 +1,16 @@
 package com.ohgiraffers.section01.xmlconfig;
 
-public class menuDTO {
+public class MenuDTO {
     private int code;
     private String name;
     private int price;
     private int categoryCode;
     private String orderableStatus;
 
-    public menuDTO() {
+    public MenuDTO() {
     }
 
-    public menuDTO(int code, String name, int price, int categoryCode, String orderableStatus) {
+    public MenuDTO(int code, String name, int price, int categoryCode, String orderableStatus) {
         this.code = code;
         this.name = name;
         this.price = price;

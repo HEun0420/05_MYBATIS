@@ -28,12 +28,12 @@ public class MenuService {
         menuDAO = new MenuDAO();
     }
 
-    public List<menuDTO> selectAllMenu() {
+    public List<MenuDTO> selectAllMenu() {
         // 세션 열어주기
         SqlSession sqlSeesion = getSqlSession();
 
         // menuDAO를 이용해 데이터베이스에서 menulist 사용하기
-        List<menuDTO> menuList = menuDAO.selectAllMenu(sqlSeesion);
+        List<MenuDTO> menuList = menuDAO.selectAllMenu(sqlSeesion);
 
         // 세션 닫기
         sqlSeesion.close();
@@ -41,15 +41,74 @@ public class MenuService {
         return menuList;
     }
 
-    public menuDTO selectMenuByCode(int code) {
+    public MenuDTO selectMenuByCode(int code) {
     // 세션 열어주기
         SqlSession sqlSession = getSqlSession();
         // 사용
-        menuDTO menu = menuDAO.selectMenuByCode(sqlSession, code);
+        MenuDTO menu = menuDAO.selectMenuByCode(sqlSession, code);
 
         // 세션 닫기
         sqlSession.close();
 
         return menu;
+    }
+
+    public boolean registMenu(MenuDTO menu) {
+        // 세션 열어주기
+        SqlSession sqlSession = getSqlSession();
+
+        int result = menuDAO.insertMenu(sqlSession, menu);
+
+        System.out.println(result);
+        // result 결과값에 따라서 insert, update, delte 트레젝션 처리를 해줘야함.
+
+        if(result > 0){
+            sqlSession.commit();
+        } else {
+            sqlSession.rollback();
+        }
+
+        // 세션 닫기
+        sqlSession.close();
+
+        return result > 0 ? true : false;
+
+    }
+
+    public boolean modifyMenu(MenuDTO menu) {
+        // 세션 열어주기
+        SqlSession sqlSession = getSqlSession();
+
+        int result = menuDAO.updateMenu(sqlSession, menu);
+
+        if(result > 0) {
+            sqlSession.commit();
+        } else {
+            sqlSession.rollback();
+        }
+
+        // 세션 닫기
+        sqlSession.close();
+
+        return result >0 ? true : false;
+    }
+
+    public boolean deleteMenu(int code) {
+
+        // 세션 열어주기
+        SqlSession sqlSession = getSqlSession();
+
+        int result = menuDAO.deleteMenu(sqlSession,code);
+
+        if(result > 0) {
+            sqlSession.commit();
+        } else {
+            sqlSession.rollback();
+        }
+
+        // 세션 닫기
+        sqlSession.close();
+
+        return result >0 ? true : false;
     }
 }
