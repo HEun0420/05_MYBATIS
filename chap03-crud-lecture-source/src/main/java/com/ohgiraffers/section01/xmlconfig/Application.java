@@ -89,13 +89,13 @@ public class Application {
     private static Map<String, String> inputModifyMenu(){
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("수정할 메뉴 코드을 입력하세요.");
+        System.out.println("메뉴 코드을 입력하세요.");
         String code = sc.nextLine();
-        System.out.println("수정할 메뉴 이름을 입력하세요.");
+        System.out.println("메뉴 이름을 입력하세요.");
         String name = sc.nextLine();
-        System.out.println("수정할 메뉴 가격을 입력하세요.");
+        System.out.println("메뉴 가격을 입력하세요.");
         String price = sc.nextLine();
-        System.out.println("수정할 카테고리 코드를 입력하세요.");
+        System.out.println("카테고리 코드를 입력하세요.");
         String categoryCode = sc.nextLine();
 
         Map<String, String> parameter = new HashMap<>();
