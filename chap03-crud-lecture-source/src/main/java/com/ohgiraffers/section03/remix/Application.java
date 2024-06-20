@@ -1,4 +1,5 @@
-package com.ohgiraffers.section02.javaconfig;
+package com.ohgiraffers.section03.remix;
+
 
 
 import java.util.HashMap;
@@ -36,7 +37,9 @@ public class Application {
                 case 3: menuController.registMenu(inputMenu());break;
                 case 4: menuController.modifyMenu(inputModifyMenu());break;
                 case 5: menuController.deleteMenu(inputMenuCode());break;
-                default: System.out.println(" 잘못된 메뉴를 입력하셨습니다. ");break;
+                default:
+                    System.out.println(" 잘못된 메뉴를 입력하셨습니다. ");
+                    break;
             }
 
         }  while (true) ;

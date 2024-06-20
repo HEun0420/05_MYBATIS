@@ -1,9 +1,6 @@
 package com.ohgiraffers.section02.javaconfig;
 
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.ResultMap;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -24,8 +21,7 @@ public interface MenuMapper {
             "        where orderable_status = 'Y'\n" +
             "        order by menu_code")
     List<MenuDTO> selectAllMenu();
-
-
+    
 
     @Select("select menu_code,\n" +
            " menu_name,\n" +
@@ -36,4 +32,31 @@ public interface MenuMapper {
             "where menu_code = #{ code }")
     @ResultMap("menuResultMap")
     MenuDTO selectMenuByCode(int code);
+
+    @Insert("insert into tbl_menu(\n" +
+            "        menu_name,\n" +
+            "        menu_price,\n" +
+            "        category_code,\n" +
+            "        orderable_status\n" +
+            "        ) values (\n" +
+            "        #{name},\n" +
+            "        #{price},\n" +
+            "        #{categoryCode},\n" +
+            "        'Y'\n" +
+            "        )")
+    int insertMenu(MenuDTO menu);
+
+    @Update("update tbl_menu\n" +
+            "        set\n" +
+            "        menu_name = #{name},\n" +
+            "        menu_price = #{price},\n" +
+            "        category_code = #{categoryCode}\n" +
+            "        where\n" +
+            "        menu_code = #{code}")
+    int modifyMenu(MenuDTO menu);
+
+    @Delete("  delete\n" +
+            "        from tbl_menu\n" +
+            "        where menu_code =#{code}")
+    int deletexMenu(int code);
 }
