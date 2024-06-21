@@ -1,4 +1,4 @@
-package com.ohgiraffers.section01.xmlconfig;
+package com.ohgiraffers.section03.remix;
 
 import java.sql.Date;
 
@@ -14,8 +14,8 @@ public class EmployeeDTO {
     private double salary;
     private double bonus;
     private String managerId;
-    private java.sql.Date hireDate;
-    private java.sql.Date entDate;
+    private Date hireDate;
+    private Date entDate;
     private String entYn;
 
     public EmployeeDTO() {

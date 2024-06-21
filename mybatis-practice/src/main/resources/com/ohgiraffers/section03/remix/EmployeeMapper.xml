@@ -2,10 +2,10 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="EmployeeMapper">
+<mapper namespace="com.ohgiraffers.section03.remix.EmployeeMapper">
     <!-- resultMap : 조회한 컬럼과 DTO를 매핑시키기 위한 설정  -->
-    <resultMap id="employeeResultMap" type="com.ohgiraffers.section01.xmlconfig.EmployeeDTO">
-        <f property="empID" column="emp_ID"/>
+    <resultMap id="employeeResultMap" type="com.ohgiraffers.section03.remix.EmployeeDTO">
+        <id property="empID" column="emp_ID"/>
         <result property="empName" column="emp_Name"/>
         <result property="empNo" column="emp_Name"/>
         <result property="email" column="Email"/>
@@ -22,7 +22,7 @@
 
     <select id="selectAllEmployee" resultMap="employeeResultMap">
         select
-        emp_ID,
+        emp_id,
         emp_Name,
         Email,
         Phone,
@@ -40,7 +40,7 @@
 
     <select id="selectEmployeeByCode" resultMap="employeeResultMap">
         select
-        emp_ID,
+        emp_id,
         emp_Name,
         Email,
         Phone,
@@ -58,7 +58,7 @@
 
     <select id="selectEmployeeByName" resultMap="employeeResultMap">
         select
-        emp_ID,
+        emp_id,
         emp_Name,
         Email,
         Phone,
@@ -73,13 +73,13 @@
         from employee
         where emp_Name = #{ empName }
     </select>
-    <insert id="insertEmployee" parameterType="com.ohgiraffers.section01.xmlconfig.EmployeeDTO">
+    <insert id="insertEmployee" parameterType="com.ohgiraffers.section03.remix.EmployeeDTO">
         insert into employee(
-        (emp_Id, emp_Name, emp_No, Email
+        (emp_id, emp_Name, emp_No, Email
         ,Phone, Dept_Code,job_Code
         ,sal_Level,salary,bonus,manager_Id,hire_date, ent_date, ent_yn
         )values (
-        #{emp_id},
+        #{emp_Id},
         #{emp_name},
         #{emp_no},
         #{email},
@@ -95,5 +95,28 @@
         #{ent_yn}
         )
     </insert>
-
+<update id="updateEmployee" parameterType="com.ohgiraffers.section03.remix.EmployeeDTO">
+    update employee
+    set
+    emp_Name = #{emp_name},
+    emp_No=#{emp_no},
+    Email=#{email},
+    Phone=#{phone},
+    Dept_Code=  #{dept_Code},
+    job_Code=  #{job_Code},
+    sal_Level=#{sal_Level},
+    salary= #{salary},
+    bonus= #{bonus},
+    manager_Id=#{manager_Id},
+    hire_date=#{hire_date},
+    ent_date= #{ent_date},
+    ent_yn=  #{ent_yn}
+    where
+    emp_id = #{emp_id}
+</update>
+    <delete id="deledtEmployee" parameterType="_int">
+        delete
+        from employee
+        where emp_id = #{emp_id},
+    </delete>
 </mapper>
