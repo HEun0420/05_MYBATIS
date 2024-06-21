@@ -15,7 +15,7 @@ public interface DynamicSqlMapper {
 
     List<MenuDTO> searchMenuBySubCategory(SearchCriteria searchCriteria);
 
-    List<MenuDTO> searchMenuByRandomMenuCode(List<Integer> randomMenuCodeList);
+    List<MenuDTO> searchMenuByRandomMenuCode(Map<String, List<Integer>> criteria);
 
     List<MenuDTO> searchMenuByCodeOrSearchAll(SearchCriteria searchCriteria);
 }

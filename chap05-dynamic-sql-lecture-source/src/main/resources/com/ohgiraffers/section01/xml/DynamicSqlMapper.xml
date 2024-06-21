@@ -142,6 +142,19 @@
                       단, name 부분에 where를 빼주지 않으면 where로 where가 2개 생성 될 수 있다.
                       엘리먼트 구문이 And나 or로 시작하면 자동으로 해당 단어를 치워준다.-->
     <select id="searchMenuByCodeOrSearchAll" parameterType="SearchCriteria" resultMap="menuResultMap">
-
+        select
+        a.menu_code,
+        a.menu_name,
+        a.menu_price,
+        a.category_code,
+        a.orderable_status
+        from tbl_menu a
+<!--     eq : equal to
+         ne : not equal to-->
+        <if test = "condition != null and condition eq 'menuCode'">
+            <where>
+                a.menu_code = #{value}
+            </where>
+        </if>
     </select>
 </mapper>

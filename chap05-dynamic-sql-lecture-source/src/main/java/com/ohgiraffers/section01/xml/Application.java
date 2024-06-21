@@ -119,9 +119,9 @@ public class Application {
 
     private static List<Integer> createRandomMenuCodeList() {
         Set<Integer> set = new HashSet<>();
-        while(set.size()< 5) {
-            // 1~21까지 랜덤한 수 temp
-            int temp = ((int) (Math.random()*21)) + 1;
+        while (set.size() < 5) {
+            // 1 ~ 21 까지 랜덤 수 temp
+            int temp = ((int) (Math.random() * 21)) + 1;
             set.add(temp);
         }
 
@@ -145,8 +145,8 @@ public class Application {
 
             switch (no) {
                 case 1: menuService.searchMenuByCodeOrSearchAll(inputAllOrOne()); break;
-                case 2: menuService.(()); break;
-                case 3: menuService.(()); break;
+//                case 2: menuService.(()); break;
+//                case 3: menuService.(()); break;
                 case 9: break;
             }
         } while (true);
