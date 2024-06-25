@@ -91,15 +91,15 @@ public class ElementTestService {
 
         List<CategoryAndMenuDTO> categoryList = mapper.selectResultMapCollectionTest();
 
-//        List<MenuDTO> menuList = categoryList.get(1).getMenuList();
-//
-//        for(MenuDTO menu : menuList) {
-//            System.out.println(menu.getName());
-//        }
+        List<MenuDTO> menuList = categoryList.get(0).getMenuList();
 
-        for(CategoryAndMenuDTO category : categoryList) {
-            System.out.println(category);
+        for(MenuDTO menu : menuList) {
+            System.out.println(menu.getName()+menu.getPrice());
         }
+
+//        for(CategoryAndMenuDTO category : categoryList) {
+//            System.out.println(category.getMenuList());
+//        }
 
         sqlSession.close();
     }
